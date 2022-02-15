@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<catalog>
+  <ogrenciler>
+    <numara>111</numara>
+    <ad_soyad>Şule Kaptan</ad_soyad>
+    <bolum>Bilgisayar Mühendisliği</bolum>
+    <sinif>4.sınıf</sinif>
+  </ogrenciler>
+  <ogrenciler>
+    <numara>222</numara>
+    <ad_soyad>Şevval Arslan</ad_soyad>
+    <bolum>Almanca Öğretmenliği</bolum>
+    <sinif>2.sınıf</sinif>
+  </ogrenciler>
+  <ogrenciler>
+    <numara>333</numara>
+    <ad_soyad>Rabia Özkan</ad_soyad>
+    <bolum>Elektrik Elektronik Mühendisliği</bolum>
+    <sinif>4.sınıf</sinif>
+  </ogrenciler>
+  <ogrenciler>
+    <numara>444</numara>
+    <ad_soyad>Eren Alp</ad_soyad>
+    <bolum>Mimarlık</bolum>
+    <sinif>4.sınıf</sinif>
+  </ogrenciler>
+</catalog>

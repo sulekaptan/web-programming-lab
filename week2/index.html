@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpReques Nesnesi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Öğrenciye Tıklandığında Bilgilerin Ekrana Gelmesi</h1>
+
+    <table id="menu">
+        <thead>
+            <tr>
+                <th>Öğrenci No</th>
+                <th>Ad Soyad</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>111</td>
+                <td>Şule Kaptan</td>
+            </tr>
+
+            <tr>
+                <td>222</td>
+                <td>Şevval Arslan</td>
+            </tr>
+            <tr>
+                <td>333</td>
+                <td>Rabia Özkan</td>
+            </tr>
+            <tr>
+                <td>444</td>
+                <td>Eren Alp</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.querySelector('#menu').onclick = function(k) {
+            var rowIndex = k.target.parentElement.rowIndex;
+            LoadDoc(rowIndex - 1);
+        }
+
+        function LoadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() { //herhangi bir değişiklik olduğunda, sunucudan yeni bir veri istediğinde bunu algıla ve şu fonksiyonu çalıştır
+                if (this.readyState == 4 && this.status == 200) { //hazır olan durum 4e eşit olduğunda ve benim durumum 200e eşit olduğunda yani sunucuda veri yanıtı hazır olduğunda demek artık geri isteyip ekrana yazdırma
+                    myFunction(xhttp); //responseText = yanıtı metin olarak alıcam demek //buradaki innerHTML herhangi bir şeyi divin içine yazdırmak için  //querySelector da kullanılabilir.
+                }
+            };
+            xhttp.open("GET", "main.xml", true); //dosyamızı GET ile aç, kaynak göster(buradan al)
+            xhttp.send();
+
+        }
+
+        function myFunction(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table = "<tr><th>Öğrenci No</th><th>Ad Soyad</th></tr>";
+            var x = xmlDoc.getElementsByTagName("ogrenci");
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("Ad Soyad")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getAttribute("id") +
+                    "</td></tr>";
+            }
+            document.getElementById("menu").innerHTML = table;
+        }
+        var i, x, sonuc;
+        xmlDoc = this.responseText;
+        x = xmlDoc.getElementByTagName("ogrenci");
+        document.querySelector("#menu").innerHTML = sonuc;
+    </script>
+
+
+</body>
+
+</html>

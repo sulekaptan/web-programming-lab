@@ -1,0 +1,28 @@
+table {
+    width: 50%;
+}
+
+table td,
+table th {
+    border: 1px solid #ddd;
+    padding: 6px;
+}
+
+table th {
+    text-align: center;
+    background-color: #9ad0cd;
+    color: black bold;
+}
+
+table tr {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #284655;
+}
